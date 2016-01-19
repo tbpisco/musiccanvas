@@ -1,0 +1,11 @@
+{
+    "devDependencies": {
+       
+        "gulp-rename": "*",
+        "gulp-minify-css": "*",
+        "gulp-uglify": "*",
+        "gulp-copy": "*",
+        "gulp-remove-html-comments": "*",
+         "gulp": "*"
+    }
+}
