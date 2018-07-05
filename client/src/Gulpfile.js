@@ -11,23 +11,23 @@ var removeHtmlComments = require('gulp-remove-html-comments');
 
 gulp.task('copy-fonts', function() {
     gulp.src('./fonts/*')
-       .pipe(gulp.dest('../Publicado/fonts/'));
+       .pipe(gulp.dest('../build/fonts/'));
 });
 
 gulp.task('copy-icon', function() {
     gulp.src('./icon.png')
-       .pipe(gulp.dest('../Publicado/'));
+       .pipe(gulp.dest('../build/'));
 });
 
 gulp.task('copy-html', function() {
     gulp.src('./index.html')
         .pipe(removeHtmlComments())
-        .pipe(gulp.dest('../Publicado/'));
+        .pipe(gulp.dest('../build/'));
 });
 
 gulp.task('copy-sons', function() {
     gulp.src('./sons/*')
-       .pipe(gulp.dest('../Publicado/sons/'));
+       .pipe(gulp.dest('../build/sons/'));
 });
 
 gulp.task('copy-js', function() {
@@ -37,7 +37,7 @@ gulp.task('copy-js', function() {
             dirname: "/",
             suffix: ''
         }))
-        .pipe(gulp.dest('../Publicado/js/'));
+        .pipe(gulp.dest('../build/js/'));
 });
 
 gulp.task('image', function () {
@@ -47,13 +47,13 @@ gulp.task('image', function () {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant(),jpegtran()]
         }))
-        .pipe(gulp.dest('../Publicado/imgs/'));
+        .pipe(gulp.dest('../build/imgs/'));
 });
 
 gulp.task('copy-css', function () {
     gulp.src('./css/*.css')
         .pipe(minifyCSS())
-        .pipe(gulp.dest('../Publicado/css/'));
+        .pipe(gulp.dest('../build/css/'));
 });
 
 gulp.task('publicar', ['copy-css','copy-fonts','image','copy-js','copy-html', 'copy-sons','copy-icon']);
